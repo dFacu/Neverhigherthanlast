@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour {
 
 	bool clicked;
 
+	bool beginner;
+	public ScoreManager finalScore;
+	
+
 	// Use this for initialization
 	public void Start ()
 	{
@@ -23,12 +27,28 @@ public class UIManager : MonoBehaviour {
 		pauseGui.SetActive(false);
 		gameplayGui.SetActive(false);
 		gameOverGui.SetActive(false);
-		helpGui.SetActive(true);
-		gameState = GameState.MENU;
+        helpGui.SetActive(false);
 
+        gameState = GameState.MENU;
 
+        if (finalScore.puntuacionAlta == 0)
+        {
+            beginner = true;
+        }
+        else
+        {
+            beginner = false;
+        }
+        if (beginner == true)
+        {
+            ShowHelp();
+        }
     }
 
+    public void Update()
+    {
+
+    }
     //show main menu
     public void ShowMainMenu()
 	{
@@ -37,12 +57,24 @@ public class UIManager : MonoBehaviour {
 		pauseGui.SetActive(false);
 		gameplayGui.SetActive(false);
 		gameOverGui.SetActive(false);
-		if (gameState == GameState.PAUSED)
+        helpGui.SetActive(false);
+
+        if (gameState == GameState.PAUSED)
 			Time.timeScale = 1;
 
 		gameState = GameState.MENU;
 		AudioManager.Instance.PlayEffects(AudioManager.Instance.buttonClick);
 		GameManager.Instance.ClearScene();
+	}
+
+	public void ShowHelp()
+	{
+        mainMenuGui.SetActive(false);
+        pauseGui.SetActive(false);
+		gameplayGui.SetActive(false);
+        gameOverGui.SetActive(false);
+        helpGui.SetActive(true);
+		beginner = false;
 	}
 
     // Entras en  Pausa
@@ -73,6 +105,8 @@ public class UIManager : MonoBehaviour {
 		pauseGui.SetActive(false);
 		gameplayGui.SetActive(true);
 		gameOverGui.SetActive(false);
+        helpGui.SetActive(false);
+
         gameState = GameState.PLAYING;
 		AudioManager.Instance.PlayEffects(AudioManager.Instance.buttonClick);
 	}
@@ -84,7 +118,9 @@ public class UIManager : MonoBehaviour {
 		pauseGui.SetActive(false);
 		gameplayGui.SetActive(false);
 		gameOverGui.SetActive(true);
-		gameState = GameState.GAMEOVER;
+        helpGui.SetActive(false);
+
+        gameState = GameState.GAMEOVER;
 	}
 
 
@@ -100,6 +136,7 @@ public class UIManager : MonoBehaviour {
         pauseGui.SetActive(false);
         gameplayGui.SetActive(false);
         gameOverGui.SetActive(false);
+        helpGui.SetActive(false);
         gameState = GameState.MENU;
 
     }
