@@ -34,15 +34,15 @@ public class UIManager : MonoBehaviour {
         if (finalScore.puntuacionAlta == 0)
         {
             beginner = true;
+            ShowHelp();
+
         }
-        if (finalScore.puntuacionAlta > 0)
+        else if (finalScore.puntuacionAlta > 0)
         {
             beginner = false;
         }
-        if (beginner == true)
-        {
-            ShowHelp();
-        }
+
+      
     }
 
     public void Update()
