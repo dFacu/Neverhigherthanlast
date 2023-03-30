@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour {
         {
             beginner = true;
         }
-        else
+        if (finalScore.puntuacionAlta > 0)
         {
             beginner = false;
         }
