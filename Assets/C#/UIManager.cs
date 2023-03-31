@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour {
 
         gameState = GameState.MENU;
 
-        if (finalScore.puntuacionAlta == 0)
+        if (finalScore.HighScore == 0)
         {
             beginner = true;
             ShowHelp();

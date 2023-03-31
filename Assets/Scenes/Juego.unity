@@ -1183,7 +1183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &291994269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65.2
+  m_fontSize: 87.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2354,12 +2354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ced6de7cee8d430fbc5aba3f9f34e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "puntuaci\xF3nActual": {fileID: 522462881}
-  puntajeAlto: {fileID: 1033013837}
+  currentScore: {fileID: 522462881}
+  highScore: {fileID: 1033013837}
   actualGameOver: {fileID: 1262308272}
   "juegoPuntuaci\xF3nAlta": {fileID: 17267040}
-  puntuacionActual: 0
-  puntuacionAlta: 0
+  CurrentScore: 0
+  HighScore: 0
   addPoints: {fileID: 2021526764}
   container: {fileID: 2021526761}
 --- !u!114 &820248456
@@ -2518,7 +2518,7 @@ SpriteRenderer:
   m_Size: {x: 7.51, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &932398035
@@ -5438,7 +5438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2127928443
 RectTransform:
   m_ObjectHideFlags: 0

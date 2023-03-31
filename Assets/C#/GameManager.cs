@@ -238,42 +238,42 @@ public class GameManager : MonoBehaviour
         ClearScene();
         // Level UP--------------------------------------------
 
-          if (scoreManager.puntuacionActual > 7)
+          if (scoreManager.CurrentScore > 7)
         {
             minBridgeLength = 5;
             maxBridgeLength = 8;
             minObstacleSpeed = 2;
             maxObstacleSpeed = 3;
         }
-        if (scoreManager.puntuacionActual > 14)
+        if (scoreManager.CurrentScore > 14)
         {
             minBridgeLength = 5;
             maxBridgeLength = 8;
             minObstacleSpeed = 3;
             maxObstacleSpeed = 4;
         }
-        if (scoreManager.puntuacionActual > 28)
+        if (scoreManager.CurrentScore > 28)
         {
             minBridgeLength = 9;
             maxBridgeLength = 15;
             minObstacleSpeed = 4;
             maxObstacleSpeed = 5;
         }
-        if (scoreManager.puntuacionActual > 34)
+        if (scoreManager.CurrentScore > 34)
         {
             minBridgeLength = 15;
             maxBridgeLength = 25;
             minObstacleSpeed = 5;
             maxObstacleSpeed = 6;
         }
-        if (scoreManager.puntuacionActual > 50)
+        if (scoreManager.CurrentScore > 50)
         {
             minBridgeLength = 25;
             maxBridgeLength = 35;
             minObstacleSpeed = 6;
             maxObstacleSpeed = 7;
         }
-        if (scoreManager.puntuacionActual > 70)
+        if (scoreManager.CurrentScore > 70)
         {
             minBridgeLength = 35;
             maxBridgeLength = 40;

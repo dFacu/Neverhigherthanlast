@@ -6,9 +6,9 @@ using System.Collections;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; set; }
-    public TextMeshProUGUI puntuaciónActual, puntajeAlto, actualGameOver, juegoPuntuaciónAlta;
+    public TextMeshProUGUI currentScore, highScore, actualGameOver, juegoPuntuaciónAlta;
 
-    public int puntuacionActual, puntuacionAlta;
+    public int CurrentScore, HighScore;
     // Start is called before the first frame update
 
     bool counting;
@@ -36,7 +36,7 @@ public class ScoreManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("Puntuación más alta"))
             PlayerPrefs.SetInt("Puntuación más alta", 0);
 
-        puntuacionAlta = PlayerPrefs.GetInt("Puntuación más alta");
+        HighScore = PlayerPrefs.GetInt("Puntuación más alta");
         pos = container.transform.position;
 
 
@@ -49,18 +49,18 @@ public class ScoreManager : MonoBehaviour
     //save and update highscore
     void UpdateHighScore()
     {
-        if (puntuacionActual > puntuacionAlta)
-            puntuacionAlta = puntuacionActual;
+        if (CurrentScore > HighScore)
+            HighScore = CurrentScore;
 
-        puntajeAlto.text = puntuacionAlta.ToString();
-        PlayerPrefs.SetInt("Puntuación más alta", puntuacionAlta);
+        highScore.text = HighScore.ToString();
+        PlayerPrefs.SetInt("Puntuación más alta", HighScore);
     }
 
     //update currentscore
     public void UpdateScore(int value)
     {
-        puntuacionActual += value;
-        puntuaciónActual.text = puntuacionActual.ToString();
+        CurrentScore += value;
+        currentScore.text = CurrentScore.ToString();
         addPoints.text = "+" + value.ToString();
 
         StartCoroutine(sp());
@@ -69,7 +69,7 @@ public class ScoreManager : MonoBehaviour
     //reset current score
     public void ResetCurrentScore()
     {
-        puntuacionActual = 0;
+        CurrentScore = 0;
         UpdateScore(0);
     }
 
@@ -78,8 +78,8 @@ public class ScoreManager : MonoBehaviour
     {
         UpdateHighScore();
 
-        actualGameOver.text = puntuacionActual.ToString();
-        juegoPuntuaciónAlta.text = puntuacionAlta.ToString();
+        actualGameOver.text = CurrentScore.ToString();
+        juegoPuntuaciónAlta.text = HighScore.ToString();
     }
 
     IEnumerator sp()
@@ -89,7 +89,7 @@ public class ScoreManager : MonoBehaviour
             container.transform.position = pos;
         }
         
-        if(puntuacionActual == 0)
+        if(CurrentScore == 0)
         {
             container.SetActive(false);
         }
